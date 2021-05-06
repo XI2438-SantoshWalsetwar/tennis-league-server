@@ -26,6 +26,7 @@ Also remove MySql Connector dependency from pom.xml and respective connector dep
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Application URL : http://localhost:8080/ - Port number is as per your configuration
+
 Swagger URL : http://localhost:8080/swagger-ui.html  -- All the Api information is available
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -38,14 +39,18 @@ Add Participant Request Payload Example
 }
 
 ##3.Scenarios and Steps Covered
+
 1.Add Participants using the above payload.Participants can be added as per the limit given in the configuration file.By default newly created is qualified to play match.
-2.Get List of participants craeted.
-3.Create Match groups.This will start new Round as well as create teams and schedule matches as per the per day criteria and number of available qualified participants.If number of available participants are uneven then the first participant is moved to next round directly. 
+
+2.Get List of participants created.
+
+3.Create Match groups.This will start new Round as well as create teams and schedule matches as per the per day criteria and number of available qualified participants.If number of available participants are uneven then the first participant is moved to next round directly.
+
 4.Update match winner using match id and winner participant id which you can get from match list.This will also mark the lost participant as disqualified and he is not eligible for next rounds.Whenever last winner of that round is updated round is closed putting end date to it.
+
 5.Repeat step 2-4 again which will create new Round of matches for the winners of previous round.this can be repeted until single participant is pending which then can be declared as winner by adding that API.
 
-Assumption
-1.Match is played by single players.
+Assumption - Match is played by single players.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
