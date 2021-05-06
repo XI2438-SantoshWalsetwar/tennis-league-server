@@ -1,5 +1,18 @@
-##1.Configurations
+##1.Running Steps
 
+1.Download the zip or clone the Git repository.
+
+2.Unzip the zip file (if you downloaded one)
+
+3.Open Command Prompt and Change directory (cd) to folder containing pom.xml
+
+4.Do Configurations specified in the config section
+
+4.mvn spring-boot:run  - Maven should be installed and configured to run this.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+##2.Configurations
 
 1.If using MYSQL Database no need to change anything.For any other relations make required changes in datasource properties such as dialect,url.
 Also remove MySql Connector dependency from pom.xml and respective connector dependency in the file.
@@ -9,15 +22,6 @@ Also remove MySql Connector dependency from pom.xml and respective connector dep
 3.Specify number of max matches per day in the application.properties with property "matches.per.day = 3".
 
 4.Create database TENNISLEAGUE using command "CREATE DATABASE TENNISLEAGUE;".
-
------------------------------------------------------------------------------------------------------------------------------------------------------
-
-##2.Running Steps
-
-1.Download the zip or clone the Git repository.
-2.Unzip the zip file (if you downloaded one)
-3.Open Command Prompt and Change directory (cd) to folder containing pom.xml
-4.mvn spring-boot:run  - Maven should be installed and configured to run this.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 
