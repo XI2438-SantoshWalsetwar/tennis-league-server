@@ -77,9 +77,9 @@ public class MatchServiceImpl implements MatchService {
     }
 
     @Override
-    public Match updateMatchWinner(long matchId, long winnerId) {
+    public Match updateMatchWinner(long matchId, long winnerParticipantId) {
 
-        Participant participant = participantService.getParticipant(winnerId);
+        Participant participant = participantService.getParticipant(winnerParticipantId);
         Match match = getMatch(matchId);
         if(match.getParticipants().get(0).getId() == participant.getId() || match.getParticipants().get(1).getId() == participant.getId())
         {
@@ -108,7 +108,6 @@ public class MatchServiceImpl implements MatchService {
         round.setLastModifiedOn(ZonedDateTime.now());
         String name = roundService.nextRound();
         round.setName(name);
-        //round.setStartDate(!"ROUND-1".equals(name) ? matchStartDate.plusDays(gapBetweenRounds) : matchStartDate);
         round.setStartDate(getNextRoundDate());
         return roundService.addRound(round);
     }

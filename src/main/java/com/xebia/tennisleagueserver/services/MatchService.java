@@ -9,5 +9,5 @@ public interface MatchService {
     public List<Match> createGroups();
     public List<Match> getAllMatches();
     public Match getMatch(long matchId);
-    public Match updateMatchWinner(long matchId,long winnerId);
+    public Match updateMatchWinner(long matchId,long winnerParticipantId);
 }

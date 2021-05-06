@@ -19,6 +19,7 @@ import java.util.List;
 
 @RestController
 @Validated
+@RequestMapping("/league/api/v1")
 public class MatchController {
 
     private final MatchService matchService;
@@ -29,21 +30,21 @@ public class MatchController {
 
 
     @ApiOperation("Create Match Groups")
-    @PostMapping("/api/v1/create-groups")
+    @PostMapping("/create-groups")
     public ResponseEntity<List<Match>> createMatchGroups(){
         return new ResponseEntity<>(matchService.createGroups(), HttpStatus.CREATED);
     }
 
     @ApiOperation("Get All Matches List")
-    @GetMapping("/api/v1/matches")
+    @GetMapping("/matches")
     public ResponseEntity<List<Match>> getListOfMatches(){
         return new ResponseEntity<>(matchService.getAllMatches(), HttpStatus.OK);
     }
 
     @ApiOperation("Update Match Winner")
-    @PutMapping("/api/v1/matches/{matchId}")
-    public ResponseEntity<Match> updateMatchWinner(@PathVariable @Min(1) @NotNull Long matchId, @RequestParam @Min(1) @NotNull Long winnerId){
-        return new ResponseEntity<>(matchService.updateMatchWinner(matchId,winnerId), HttpStatus.OK);
+    @PutMapping("/matches/{matchId}")
+    public ResponseEntity<Match> updateMatchWinner(@PathVariable @Min(1) @NotNull Long matchId, @RequestParam @Min(1) @NotNull Long winnerParticipantId){
+        return new ResponseEntity<>(matchService.updateMatchWinner(matchId,winnerParticipantId), HttpStatus.OK);
     }
 
 }

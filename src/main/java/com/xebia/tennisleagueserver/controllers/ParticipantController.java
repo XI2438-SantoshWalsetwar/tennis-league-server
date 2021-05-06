@@ -19,6 +19,7 @@ import java.util.List;
  */
 
 @RestController
+@RequestMapping("/league/api/v1")
 public class ParticipantController {
 
     private final ParticipantService service;
@@ -32,14 +33,14 @@ public class ParticipantController {
     }
 
     @ApiOperation("Get All Participants")
-    @GetMapping("/api/v1/participants")
+    @GetMapping("/participants")
     public ResponseEntity<List<Participant>> getAllParticipants(){
         LOG.info("Get Participant request received");
         return new ResponseEntity<>(service.getParticipants(), HttpStatus.OK);
     }
 
     @ApiOperation("Add Participant")
-    @PostMapping("/api/v1/participants")
+    @PostMapping("/participants")
     public ResponseEntity<Participant> addParticipant(@Valid @RequestBody Participant participant){
         LOG.info("Add participant request received");
         return new ResponseEntity<>(service.addParticipant(participant), HttpStatus.OK);
